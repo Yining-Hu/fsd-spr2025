@@ -60,19 +60,12 @@ public class Game {
         }
     }
 
-    private void save(List<Player> list) throws IOException {
-        File file = new File(filename);
-        FileOutputStream fileOut = new FileOutputStream(file);
-        ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
-
-        objOut.writeObject(list);
-
-        objOut.close();
-        fileOut.close();
-    }
-
     private void save() throws IOException {
-        save(players);
+        File file = new File(filename);
+        try (FileOutputStream fileOut = new FileOutputStream(file);
+            ObjectOutputStream objOut = new ObjectOutputStream(fileOut)) {
+            objOut.writeObject(players);
+        }
     }
 
     private List<Player> readPlayers() throws IOException, EOFException, ClassNotFoundException {
