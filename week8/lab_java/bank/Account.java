@@ -1,9 +1,6 @@
-import java.util.Scanner;
-
 public class Account {
     private String type;
     private double balance;
-    private Scanner in = new Scanner(System.in);
 
     public Account(String type) {
         this.type = type;
@@ -12,7 +9,7 @@ public class Account {
 
     private double readBalance() {
         System.out.print("Initial " + this.type + " balance $");
-        return in.nextDouble();
+        return Config.IN.nextDouble();
     }
 
     public boolean hasType(String type){
