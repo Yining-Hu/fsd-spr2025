@@ -1,8 +1,12 @@
+package bank;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import utils.In;
 
-public class Customer {
+public class Customer implements Serializable{
     private String name;
     private List<Account> accounts;
 
@@ -22,11 +26,7 @@ public class Customer {
 
     private String readName() {        
         System.out.print("Create Accounts for Customer: ");
-        return Config.IN.next();
-    }
-
-    public String getName(){
-        return this.name;
+        return In.nextLine();
     }
 
     public boolean match(String name){
@@ -69,7 +69,7 @@ public class Customer {
         if(savings != null){
             if (savings.has(amount)){
                 if(loan !=null){
-                    savings.transfer(amount, loan);
+                    savings.payTo(amount, loan);
                 }else{
                     System.out.println("No such account");
                 }
@@ -83,11 +83,11 @@ public class Customer {
 
     private double readAmount(String action) {
         System.out.print("Amount to "+action+": $");
-        return Config.IN.nextDouble();
+        return In.nextDouble();
     }
 
     private void show() {        
-        System.out.println(name+" bank statement: "+Config.DTF.format(Config.NOW));
+        System.out.println(name+" bank statement: "+Bank.DTF.format(Bank.NOW));
         accounts.forEach(System.out::println);        
     }    
     
@@ -99,11 +99,11 @@ public class Customer {
     
     private char readChoice(){
         System.out.print("Customer menu (d/w/t/s/x): ");
-        return Config.IN.next().charAt(0);
+        return In.nextChar();
     }
 
     public void use() {
-        System.out.println(name+" banking menu: "+Config.DTF.format(Config.NOW));
+        System.out.println(name+" banking menu: "+Bank.DTF.format(Bank.NOW));
         char c;
         while((c = readChoice()) != 'x'){
             switch(c){
