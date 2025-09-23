@@ -1,44 +1,44 @@
 package bank;
 
-import utils.In;
-
 public class Manager{
     private String name;
+    private Bank bank;
     
-    public Manager()    {
+    public Manager(Bank bank)    {
        this.name = "John Smith";
+       this.bank = bank;
     }
 
-    private void view(Bank bank){
-        bank.view();
+    private void view(){
+        this.bank.view();
     }
     
-    private void show(Bank bank){
-        bank.show();
+    private void show(){
+        this.bank.show();
     }
     
-    private void remove(Bank bank){
-        bank.remove();
+    private void remove(){
+        this.bank.remove();
     }
     
-    private void add(Bank bank){
-        bank.add();
+    private void add(){
+        this.bank.add();
     }
     
     private char readChoice(){
         System.out.print("Manager menu (a/r/s/v/x): ");
-        return In.nextChar();
+        return Config.IN.next().charAt(0);
     }
 
-    public void use(Bank bank) {
-        System.out.println(name+" admin menu: "+Bank.DTF.format(Bank.NOW));
+    public void use() {
+        System.out.println(name+" admin menu: "+Config.DTF.format(Config.NOW));
         char c;
         while((c = readChoice()) != 'x'){
             switch(c){
-                case 'a': add(bank); break;
-                case 'r': remove(bank); break;
-                case 's': show(bank); break;
-                case 'v': view(bank); break;
+                case 'a': this.add(); break;
+                case 'r': this.remove(); break;
+                case 's': this.show(); break;
+                case 'v': this.view(); break;
                 default: help(); break;
             }
         }
@@ -49,7 +49,7 @@ public class Manager{
         System.out.println("Menu options");
         System.out.println("a = add a new customer");
         System.out.println("r = remove a customer");
-        System.out.println("s = show customer statement");
+        System.out.println("s = show the selected customer statement");
         System.out.println("v = view all customers");
         System.out.println("x = exit");
     }

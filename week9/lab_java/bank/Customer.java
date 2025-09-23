@@ -4,9 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import utils.In;
 
-public class Customer implements Serializable{
+public class Customer implements Serializable {
     private String name;
     private List<Account> accounts;
 
@@ -26,7 +25,11 @@ public class Customer implements Serializable{
 
     private String readName() {        
         System.out.print("Create Accounts for Customer: ");
-        return In.nextLine();
+        return Config.IN.next();
+    }
+
+    public String getName(){
+        return this.name;
     }
 
     public boolean match(String name){
@@ -69,7 +72,7 @@ public class Customer implements Serializable{
         if(savings != null){
             if (savings.has(amount)){
                 if(loan !=null){
-                    savings.payTo(amount, loan);
+                    savings.transfer(amount, loan);
                 }else{
                     System.out.println("No such account");
                 }
@@ -83,11 +86,11 @@ public class Customer implements Serializable{
 
     private double readAmount(String action) {
         System.out.print("Amount to "+action+": $");
-        return In.nextDouble();
+        return Config.IN.nextDouble();
     }
 
     private void show() {        
-        System.out.println(name+" bank statement: "+Bank.DTF.format(Bank.NOW));
+        System.out.println(name+" bank statement: "+Config.DTF.format(Config.NOW));
         accounts.forEach(System.out::println);        
     }    
     
@@ -99,11 +102,11 @@ public class Customer implements Serializable{
     
     private char readChoice(){
         System.out.print("Customer menu (d/w/t/s/x): ");
-        return In.nextChar();
+        return Config.IN.next().charAt(0);
     }
 
     public void use() {
-        System.out.println(name+" banking menu: "+Bank.DTF.format(Bank.NOW));
+        System.out.println(name+" banking menu: "+Config.DTF.format(Config.NOW));
         char c;
         while((c = readChoice()) != 'x'){
             switch(c){

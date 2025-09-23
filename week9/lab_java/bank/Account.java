@@ -1,9 +1,8 @@
 package bank;
 
 import java.io.Serializable;
-import utils.In;
 
-public class Account implements Serializable{
+public class Account implements Serializable {
     private String type;
     private double balance;
 
@@ -14,7 +13,7 @@ public class Account implements Serializable{
 
     private double readBalance() {
         System.out.print("Initial " + this.type + " balance $");
-        return In.nextDouble();
+        return Config.IN.nextDouble();
     }
 
     public boolean hasType(String type){
@@ -33,7 +32,7 @@ public class Account implements Serializable{
         this.balance -= amount;
     }
 
-    public void payTo(double amount, Account target) {
+    public void transfer(double amount, Account target) {
         this.balance -= amount;
         target.balance += amount;
     }

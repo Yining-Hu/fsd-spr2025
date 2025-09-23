@@ -1,15 +1,19 @@
 package bank;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.io.*;
-import java.io.File;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class BackUp{
+public class Config {
+    public static final DateTimeFormatter DTF = DateTimeFormatter.ofPattern("dd/MM/uuuu - HH:mm:ss");
+    public static final LocalDateTime NOW = LocalDateTime.now();
+    public static final Scanner IN = new Scanner(System.in);
     private static String filename = "customers.data";
 
-    public static void initialize() {
+        public static void initialize() {
         try{
             List<Customer> customers = new LinkedList<>();
             File file = new File(filename);
@@ -22,9 +26,9 @@ public class BackUp{
                 fileOut.close();
             }    
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(BackUp.class.getName()).log(Level.SEVERE, "File Not Found", ex);
+            Logger.getLogger(Config.class.getName()).log(Level.SEVERE, "File Not Found", ex);
         } catch (IOException ex) {
-            Logger.getLogger(BackUp.class.getName()).log(Level.SEVERE, "Reading Error", ex);
+            Logger.getLogger(Config.class.getName()).log(Level.SEVERE, "Reading Error", ex);
         } 
     }
 
@@ -38,11 +42,11 @@ public class BackUp{
             fileIn.close();
 
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(BackUp.class.getName()).log(Level.SEVERE, "File Not Found", ex);
+            Logger.getLogger(Config.class.getName()).log(Level.SEVERE, "File Not Found", ex);
         } catch (IOException ex) {
-            Logger.getLogger(BackUp.class.getName()).log(Level.SEVERE, "Reading Error", ex);
+            Logger.getLogger(Config.class.getName()).log(Level.SEVERE, "Reading Error", ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(BackUp.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Config.class.getName()).log(Level.SEVERE, null, ex);
         }
         return customers;
     }
@@ -57,9 +61,9 @@ public class BackUp{
             fileOut.close();
 
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(BackUp.class.getName()).log(Level.SEVERE, "File Not Found", ex);
+            Logger.getLogger(Config.class.getName()).log(Level.SEVERE, "File Not Found", ex);
         } catch (IOException ex) {
-            Logger.getLogger(BackUp.class.getName()).log(Level.SEVERE, "Reading Error", ex);
+            Logger.getLogger(Config.class.getName()).log(Level.SEVERE, "Reading Error", ex);
         }
     }
 }
