@@ -1,7 +1,7 @@
 from model import Database
 
-# Controller class is completed
-class Controller:
+# UserController class is completed
+class UserController:
     def __init__(self):
         self.model = Database()
 

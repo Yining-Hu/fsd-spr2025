@@ -1,13 +1,13 @@
-from controller import Controller
+from controller import UserController
 import tkinter as tk
 import tkinter.messagebox as mb
 
 class ConfirmationView(tk.Toplevel):
-    def __init__(self, master, msg):
-        super().__init__(master=master)
+    def __init__(self, parent, msg):
+        super().__init__(master=parent)
         # Add a title
         # Set the geometry
-        # Get the master x,y position
+        # Get the parent x,y position
         # Place this window to the right side of the main window
         # Configure background color
         # Disable resizable
@@ -19,8 +19,8 @@ class ConfirmationView(tk.Toplevel):
 class LoginFrame(tk.LabelFrame):
     
     # Complete the constructor function 
-    def __init__(self, master,model) -> None:
-        super().__init__(master)
+    def __init__(self, parent) -> None:
+        super().__init__(parent)
         
         # Create a standalone window frame
         # Configure the columns weight 0 --> 1 and 1 --> 3
@@ -39,9 +39,5 @@ class LoginFrame(tk.LabelFrame):
     # Complete the login function to match input fields data with model data
     # - If the customer exist, open a new confirmation window with the welcome message
     # - If the credentials are incorrect open a pop-up error notification
-    def login(self,master,model):
-        pass # replace pass with the correct code               
-
-
-
-        
+    def login(self):
+        pass # replace pass with the correct code
