@@ -55,14 +55,9 @@ class LoginFrame(tk.LabelFrame):
         self.passwordField.delete(0,tk.END)
 
     def login(self):
-        user = self.controller.match(self.emailText.get(),self.passwordText.get())
-        if user != None:
-            info = f"Welcome {user.name}"
-            ConfirmationView(self.parent, info)
-            UserController.save(user)
-            self.clear()
-            print(UserController.read())
+        user, message = self.controller.login(self.emailText.get(), self.passwordText.get())
+        if user:
+            ConfirmationView(self.parent, message)
         else:
-            info = "Incorrect email or password"
-            mb.showerror(title="Login Error", message=info)
-            self.clear()
+            mb.showerror(title="Login Error", message=message)
+        self.clear()

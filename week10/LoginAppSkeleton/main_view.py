@@ -9,6 +9,7 @@ root.configure(bg='#607b8d')
 root.resizable(False, False)
 
 # load the login frame on the main window
+LoginFrame(root)
 
 root.mainloop()
 

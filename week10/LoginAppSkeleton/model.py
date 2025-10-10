@@ -1,6 +1,6 @@
 import datetime as dt
 
-# The use class is completed
+# The User class is completed
 class User:
     def __init__(self, name, email, password):
         self.name = name
@@ -27,3 +27,23 @@ class Database:
             if user.match(email, passord):
                 return user
         return None
+
+# the Logger class is complete
+class Logger:
+    @staticmethod
+    def save(user):
+        handler = open("./log.txt","a+")
+        handler.write(str(user))
+        handler.write("\n")
+        handler.close()
+
+    @staticmethod
+    def read():
+        handler = open("./log.txt","r")
+        data = handler.readlines()
+        lines = []
+        for line in data:
+            if not(line.isspace()):
+                filtered = line.replace("\n","")
+                lines.append(filtered)
+        return lines
