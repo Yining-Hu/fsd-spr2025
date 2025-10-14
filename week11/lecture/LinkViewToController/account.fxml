@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="lecture.LinkViewToController.AccountController">
+    <Label text="Name:"/>
+    <TextField fx:id="nameTf"/>
+    <Label text="Balance:"/>
+    <TextField fx:id="balanceTf"/>
+    <Label text="Transaction amount ($):"/>
+    <TextField fx:id="amountTf" text="0.00"/>
+    <Button text="Deposit" onAction="#handleDeposit"/>
+    <Button text="Withdraw" onAction="#handleWithdraw"/>
+</VBox>
