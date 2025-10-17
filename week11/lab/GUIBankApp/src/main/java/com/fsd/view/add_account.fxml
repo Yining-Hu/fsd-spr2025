@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml"
+		fx:controller="com.fsd.controller.AddAccountController"
+		alignment="center" hgap="10" vgap="10" 
+		styleClass="root">
+
+	<Text styleClass="heading" text="Add Account" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2"/>
+	<Label text="Type:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+	<TextField fx:id="typeTf" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+	<Label text="Credit Limit:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+	<TextField fx:id="creditLimitTf" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+	<HBox alignment="center" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="2">
+		<Button text="Cancel" onAction="#handleCancel"/>
+		<Button fx:id="addBtn" text="Add" disable="true" onAction="#handleAdd"/>
+	</HBox>
+
+	<stylesheets><URL value="@style.css"/></stylesheets>
+</GridPane>

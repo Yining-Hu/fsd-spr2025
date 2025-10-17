@@ -1,0 +1,50 @@
+.root {
+  -fx-background-color: #607b8d;
+  /* -fx-padding: 50px 50px 50px 50px; */
+  -fx-padding: 50px;
+}
+
+ListView * {
+  -fx-fill: #333333;
+}
+
+.heading {
+  -fx-font-size: 32px;
+  -fx-font-family: "Arial";
+  -fx-font-weight: bold;
+  -fx-fill: #ffc107;
+  -fx-stroke: #212121;
+}
+
+Label {
+  -fx-font-size: 12px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #fff;
+}
+
+.table-view .label {
+  -fx-text-fill: black;
+}
+
+Text {
+  -fx-fill: #fff;
+}
+
+.field {
+  -fx-background-color: #fff;
+  -fx-border-color: black;
+}
+
+Button {
+  -fx-text-fill: white;
+  -fx-font-family: "Arial";
+  -fx-font-weight: bold;
+  -fx-background-color: #212121;
+  -fx-text-fill: #ffc107;
+  -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+Button:hover {
+  -fx-background-color: #ffc107;
+  -fx-text-fill: #212121;
+}

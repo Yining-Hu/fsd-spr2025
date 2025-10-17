@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml"
+		fx:controller="com.fsd.controller.AddAccountController"
+		alignment="center" hgap="10" vgap="10" 
+		styleClass="root">
+	<!-- 
+		1 - Add text heading "Add Account" on row 0 and column 0, spanning 2 columns
+		2 - Add label "Type: " on row 1 column 0
+		3 - Add textfield typeTf on row 1 column 1
+		4 - Add label "Credit Limit" on row 2 column 0
+		5 - Add textfield creditLimitTf on row 2 column 1
+		6 - Add HBox on row 3 column 0 center-aligned column span 2, with 10 spacings
+		7 - Add cancel button and link the button on action to handleCancel
+		8 - Add 'Add' button and link the button to handleAdd
+		9 - Enable style.css
+	-->
+</GridPane>

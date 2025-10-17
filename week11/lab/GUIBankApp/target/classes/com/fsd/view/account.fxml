@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml"
+		fx:controller="com.fsd.controller.AccountController"
+		alignment="center" hgap="10" vgap="10" 
+		styleClass="root">
+
+	<Text styleClass="heading" text="${controller.account.type + ' account'}" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2"/>
+	<Label text="Type:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+	<Text fx:id="typeTxt" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+	<Label text="Balance:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+	<Text fx:id="balanceTxt" styleClass="field" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+	<HBox alignment="center" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="2">
+		<Label text="\$"/>
+		<TextField text="0.00" fx:id="amountTf"/>
+		<Button text="Deposit" onAction="#handleDeposit"/>
+		<Button text="Withdraw" onAction="#handleWithdraw"/>
+	</HBox>
+	
+	<stylesheets><URL value="@style.css"/></stylesheets>
+	
+</GridPane>
